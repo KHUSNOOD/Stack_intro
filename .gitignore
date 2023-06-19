@@ -1,4 +1,4 @@
-***********Stacks intro code using linked list*****************************
+***********Stacks intro code using Array*****************************
 
 #include<iostream>
 using namespace std;
