@@ -1,32 +1,52 @@
-# Prerequisites
-*.d
+***********Stacks intro code*****************************
 
-# Compiled Object files
-*.slo
-*.lo
-*.o
-*.obj
-
-# Precompiled Headers
-*.gch
-*.pch
-
-# Compiled Dynamic libraries
-*.so
-*.dylib
-*.dll
-
-# Fortran module files
-*.mod
-*.smod
-
-# Compiled Static libraries
-*.lai
-*.la
-*.a
-*.lib
-
-# Executables
-*.exe
-*.out
-*.app
+#include<iostream>
+using namespace std;
+struct stack{
+    int size;
+    int top;
+    int *s;
+    
+};
+void create(struct stack *st){
+    cout<<"Enter the size";
+    cin>>st->size;
+    st->top=-1;
+    st->s=new int [st->size];
+}
+void display(struct stack *st){
+    for(int i=st->top; i>=0; i--){
+        cout<<st->s[i]<<" ";
+    }
+    cout<<endl;
+}
+void push(struct stack *st,int x){
+    if(st->top==st->size-1){
+        cout<<"Stack overfolw"<<endl;
+    }
+    else{
+        st->top++;
+        st->s[st->top]=x;
+    }
+}
+int pop(struct stack *st){
+    int x=-1;
+    if(st->top=-1){
+        cout<<"Stack underflow"<<endl;
+    }
+    else{
+        x=st->s[st->top];
+        st->top--;
+    }
+    return x;
+}
+int main(){
+    struct stack st;
+    create(&st);
+    push(&st,12);
+    push(&st,2);
+    push(&st,102);
+    push(&st,120);
+    display(&st);
+    return 0;
+}
